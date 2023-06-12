@@ -1,5 +1,7 @@
 package com.skilldistillery.workout.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +14,45 @@ public class Workout {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String location;
+	private LocalDate date;
+	
+	private int intensity;
+	
+	private int duration;
+	
+	private String description;
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public int getIntensity() {
+		return intensity;
+	}
+
+	public void setIntensity(int intensity) {
+		this.intensity = intensity;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public Workout() {
 		super();
@@ -26,12 +66,11 @@ public class Workout {
 		this.id = id;
 	}
 
-	public String getLocation() {
-		return location;
+	@Override
+	public String toString() {
+		return "Workout [id=" + id + ", date=" + date + ", intensity=" + intensity + ", duration=" + duration
+				+ ", description=" + description + "]";
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
 
 }

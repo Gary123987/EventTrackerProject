@@ -22,10 +22,7 @@ DROP TABLE IF EXISTS `workout` ;
 
 CREATE TABLE IF NOT EXISTS `workout` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `date` DATE NULL,
-  `intensity` INT NULL,
-  `duration` INT NULL,
-  `description` TEXT NULL,
+  `location` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -46,9 +43,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `WorkoutTracker`;
-INSERT INTO `workout` (`id`, `date`, `intensity`, `duration`, `description`) VALUES (1, '20230420', 7, 30, 'Went for a run.');
-INSERT INTO `workout` (`id`, `date`, `intensity`, `duration`, `description`) VALUES (2, '20230426', 10, 60, 'Upper body weight training.');
-INSERT INTO `workout` (`id`, `date`, `intensity`, `duration`, `description`) VALUES (3, '20230502', 8, 45, 'Leg weight training. ');
+INSERT INTO `workout` (`id`, `location`) VALUES (1, 'LA Fitness');
 
 COMMIT;
 

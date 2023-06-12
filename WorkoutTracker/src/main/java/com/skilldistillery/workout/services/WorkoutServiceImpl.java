@@ -33,7 +33,10 @@ public class WorkoutServiceImpl implements WorkoutService {
 	@Override
 	public Workout update(Workout workout, int id) {
 		Workout oldWorkout = repo.findById(id);
-		oldWorkout.setLocation(workout.getLocation());
+		oldWorkout.setDate(workout.getDate());
+		oldWorkout.setDescription(workout.getDescription());
+		oldWorkout.setIntensity(workout.getIntensity());
+		oldWorkout.setDuration(workout.getDuration());
 		return repo.save(oldWorkout);
 	}
 

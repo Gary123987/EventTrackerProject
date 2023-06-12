@@ -43,7 +43,8 @@ class WorkoutTest {
 
 	@Test
 	void test() {
-		assertEquals(wo.getLocation(), "LA Fitness");
+		assertEquals(wo.getDate().toString(), "2023-04-20");
+		assertEquals(wo.getDescription(), "Went for a run.");
 	}
 
 }
