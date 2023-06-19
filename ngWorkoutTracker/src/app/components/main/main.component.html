@@ -1,0 +1,40 @@
+<h1>Welcome to the Workout Tracker!</h1>
+
+<div id="workoutListDiv" *ngIf="! workoutToBeUpdated">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Workout</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workout of workoutList">
+        <td>{{workout.date}}</td>
+        <td>{{workout.description}}</td>
+        <td><button (click)="workoutToBeUpdated = workout">Update</button></td>
+        <td><button (click)="delete(workout)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Create a New Workout</h2><br>
+  Date:<input type="date" name="date" [(ngModel)]="newWorkout.date"/><br>
+  Description: <input type="text" name="description" [(ngModel)]="newWorkout.description"/><br>
+  Duration: <input type="number" name="duration" [(ngModel)]="newWorkout.duration"/><br>
+  Intensity: <input type="number" name="intensity" [(ngModel)]="newWorkout.intensity"/><br>
+  <button (click)="createWorkout(newWorkout)">Submit</button>
+
+
+
+</div>
+<div *ngIf="workoutToBeUpdated">
+  Date:<input type="date" name="date" [(ngModel)]="workoutToBeUpdated.date"/><br>
+  Description: <input type="text" name="description" [(ngModel)]="workoutToBeUpdated.description"/><br>
+  Duration: <input type="number" name="duration" [(ngModel)]="workoutToBeUpdated.duration"/><br>
+  Intensity: <input type="number" name="intensity" [(ngModel)]="workoutToBeUpdated.intensity"/><br>
+  <button (click)="update(newWorkout)">Submit</button><button (click)="workoutToBeUpdated = null">Cancel</button>
+
+
+</div>
